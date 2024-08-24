@@ -3,7 +3,7 @@ $secondary: #ff66b3;
 $background: #084b83;
 $light: #f0f6f6;
 $dark: #084b83;
-$active: #bbe6e4;
+$hover: #bbe6e4;
 
 // Import Bootstrap functions and variables
 @import "../node_modules/bootstrap/scss/_functions";
@@ -26,3 +26,19 @@ $theme-colors: map-merge($custom-theme-colors, $theme-colors);
 body {
   background-color: $light;
 }
+
+li:hover {
+  background-color: $hover;
+  cursor: pointer;
+}
+
+.correct {
+  background-color: $success;
+  color: #fff;
+}
+
+.wrong {
+  background-color: $danger;
+  color: #fff;
+}
+
