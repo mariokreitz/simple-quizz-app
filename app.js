@@ -114,7 +114,7 @@ class Quiz {
       this.loadQuestion();
     }, 2000);
   }
-
+  // TODO: progressbar redern beim start!
   loadQuestion() {
     if (this.currentQuestion.textContent < this.quiz.questions.length) {
       this.currentQuestion.textContent++;
