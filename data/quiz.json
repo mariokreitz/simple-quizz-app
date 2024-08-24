@@ -1,0 +1,120 @@
+{
+  "title": "JavaScript Quiz",
+  "questions": [
+    {
+      "question": "Was ist JavaScript?",
+      "options": ["Eine Programmiersprache", "Ein Texteditor", "Ein Betriebssystem", "Eine Datenbank"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Wie definiert man eine Variable in JavaScript?",
+      "options": ["var meineVariable;", "int meineVariable;", "let meineVariable;", "const meineVariable;"],
+      "correctAnswer": 2
+    },
+    {
+      "question": "Wie fügt man in JavaScript einen Kommentar ein?",
+      "options": [
+        "// Dies ist ein Kommentar",
+        "/* Dies ist ein Kommentar */",
+        "<!-- Dies ist ein Kommentar -->",
+        "# Dies ist ein Kommentar"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Wie schreibt man eine Funktion in JavaScript?",
+      "options": [
+        "function meinFunction() {}",
+        "def meinFunction() {}",
+        "function: meinFunction() {}",
+        "func meinFunction() {}"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Wie kann man in JavaScript eine Schleife erstellen?",
+      "options": [
+        "for (let i = 0; i < 5; i++) {}",
+        "loop (let i = 0; i < 5; i++) {}",
+        "for i in range(5): {}",
+        "repeat (let i = 0; i < 5; i++) {}"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Wie greift man auf ein HTML-Element mit der ID 'meinElement' zu?",
+      "options": [
+        "document.getElementById('meinElement')",
+        "document.querySelector('#meinElement')",
+        "document.getElementsByClassName('meinElement')",
+        "document.getElementsByTagName('meinElement')"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Welches Schlüsselwort verwendet man, um eine Konstante zu definieren?",
+      "options": ["constant", "var", "let", "const"],
+      "correctAnswer": 3
+    },
+    {
+      "question": "Wie überprüft man in JavaScript, ob zwei Werte gleich sind?",
+      "options": ["a == b", "a = b", "a === b", "a != b"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Wie kann man in JavaScript ein Array definieren?",
+      "options": ["let arr = [1, 2, 3];", "let arr = {1, 2, 3};", "let arr = (1, 2, 3);", "let arr = <1, 2, 3>;"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Wie ruft man eine Funktion namens 'meineFunktion' in JavaScript auf?",
+      "options": [
+        "meineFunktion();",
+        "call meineFunktion();",
+        "callFunction meineFunktion();",
+        "execute meineFunktion();"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Wie konkateniert man Strings in JavaScript?",
+      "options": ["str1 + str2", "str1 . str2", "str1 & str2", "str1 ++ str2"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Wie definiert man ein Objekt in JavaScript?",
+      "options": [
+        "let obj = {name: 'John', age: 30};",
+        "let obj = [name: 'John', age: 30];",
+        "let obj = (name: 'John', age: 30);",
+        "let obj = <name: 'John', age: 30>;"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Was gibt die Funktion `typeof` in JavaScript zurück?",
+      "options": [
+        "Den Typ eines Werts",
+        "Die Länge eines Strings",
+        "Den Namen einer Funktion",
+        "Den Wert einer Variablen"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Wie kann man eine Bedingung in JavaScript überprüfen?",
+      "options": ["if (a > b) {}", "check (a > b) {}", "when (a > b) {}", "validate (a > b) {}"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Welche Methode fügt ein Element an das Ende eines Arrays an?",
+      "options": ["push()", "append()", "add()", "insert()"],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Wie konvertiert man eine Zeichenkette in eine Zahl?",
+      "options": ["Number()", "parseInt()", "parseFloat()", "Alle oben genannten"],
+      "correctAnswer": 3
+    }
+  ]
+}

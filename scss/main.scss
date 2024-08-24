@@ -1,0 +1,28 @@
+$primary: #42bfdd;
+$secondary: #ff66b3;
+$background: #084b83;
+$light: #f0f6f6;
+$dark: #084b83;
+$active: #bbe6e4;
+
+// Import Bootstrap functions and variables
+@import "../node_modules/bootstrap/scss/_functions";
+@import "../node_modules/bootstrap/scss/_variables";
+
+$custom-theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "background": $background,
+  "light": $light,
+  "dark": $dark,
+);
+
+$theme-colors: map-merge($custom-theme-colors, $theme-colors);
+
+// Import Bootstrap and its default variables
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+body {
+  background-color: $light;
+}
