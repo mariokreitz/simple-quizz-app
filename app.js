@@ -36,6 +36,7 @@ async function fetchData(url) {
 }
 
 class Quiz {
+  correctAnswers = 0;
   constructor(quiz, cardTitle, cardText, listGroupItems, nextButton, currentQuestion, questionTotal, progressBar) {
     this.quiz = quiz;
     this.cardTitle = cardTitle;
@@ -80,17 +81,64 @@ class Quiz {
 
   next() {
     this.checkAnswer();
+    this.nextQuestion();
   }
 
   checkAnswer() {
+    this.nextButton.disabled = true;
     this.listGroupItems.forEach((listGroupItem, index) => {
       if (listGroupItem.classList.contains("active")) {
         if (this.quiz.questions[this.currentQuestion.textContent - 1].correctAnswer === index) {
           listGroupItem.classList.add("correct");
+          listGroupItem.classList.remove("active");
+          this.correctAnswers++;
         } else {
+          const correctAnswer = this.quiz.questions[this.currentQuestion.textContent - 1].correctAnswer;
+          this.listGroupItems[correctAnswer].classList.add("correct");
+          listGroupItem.classList.remove("active");
           listGroupItem.classList.add("wrong");
         }
       }
     });
+  }
+
+  resetSelection() {
+    this.listGroupItems.forEach((listGroupItem) => {
+      listGroupItem.classList.remove("correct", "wrong");
+    });
+  }
+
+  nextQuestion() {
+    setTimeout(() => {
+      this.resetSelection();
+      this.loadQuestion();
+    }, 2000);
+  }
+
+  loadQuestion() {
+    if (this.currentQuestion.textContent < this.quiz.questions.length) {
+      this.currentQuestion.textContent++;
+      this.cardText.textContent = this.quiz.questions[this.currentQuestion.textContent - 1].question;
+      this.listGroupItems.forEach((listGroupItem, index) => {
+        listGroupItem.textContent = this.quiz.questions[this.currentQuestion.textContent - 1].options[index];
+      });
+      this.progressBar.style.width = `${(this.currentQuestion.textContent / this.quiz.questions.length) * 100}%`;
+      this.progressBar.textContent = `${(this.currentQuestion.textContent / this.quiz.questions.length) * 100}%`;
+    } else {
+      this.cardText.textContent = "Quiz beendet!";
+    }
+  }
+  reset() {
+    this.currentQuestion.textContent = 1;
+    this.cardText.textContent = this.quiz.questions[0].question;
+    this.progressBar.style.width = "0%";
+    this.nextButton.disabled = true;
+    this.loadQuestion();
+
+    this.listGroupItems.forEach((listGroupItem) => {
+      listGroupItem.classList.remove("correct", "wrong");
+    });
+
+    this.correctAnswers = 0;
   }
 }
