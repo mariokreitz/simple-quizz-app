@@ -112,9 +112,9 @@ class Quiz {
     setTimeout(() => {
       this.resetSelection();
       this.loadQuestion();
-    }, 2000);
+    }, 750);
   }
-  // TODO: progressbar redern beim start!
+  // TODO: progressbar rendern beim start!
   loadQuestion() {
     if (this.currentQuestion.textContent < this.quiz.questions.length) {
       this.currentQuestion.textContent++;
@@ -126,6 +126,7 @@ class Quiz {
       this.progressBar.textContent = `${(this.currentQuestion.textContent / this.quiz.questions.length) * 100}%`;
     } else {
       this.cardText.textContent = "Quiz beendet!";
+      console.log(this.correctAnswers);
     }
   }
   reset() {
