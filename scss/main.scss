@@ -20,7 +20,6 @@ $custom-theme-colors: (
 $theme-colors: map-merge($custom-theme-colors, $theme-colors);
 
 // Import Bootstrap and its default variables
-@import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 body {
@@ -45,6 +44,10 @@ li:hover {
 .img-auto {
   width: 14rem;
   margin-inline: auto;
+}
+
+.end-screen {
+  background-color: $background;
 }
 
 @include media-breakpoint-up(lg) {

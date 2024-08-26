@@ -62,6 +62,7 @@ class Quiz {
   start() {
     this.currentQuestion.textContent = 0;
     this.questionTotal.textContent = this.quiz.questions.length;
+    this.cardTitle.textContent = this.quiz.title;
     this.loadQuestion();
   }
 
@@ -119,8 +120,8 @@ class Quiz {
       this.progressBar.style.width = `${(this.currentQuestion.textContent / this.quiz.questions.length) * 100}%`;
       this.progressBar.textContent = `${(this.currentQuestion.textContent / this.quiz.questions.length) * 100}%`;
     } else {
-      this.cardText.textContent = "Quiz beendet!";
-      console.log(this.correctAnswers);
+      // this.cardText.textContent = "Quiz beendet!";
+      this.showEndScreen();
     }
   }
   reset() {
@@ -135,5 +136,12 @@ class Quiz {
     });
 
     this.correctAnswers = 0;
+  }
+
+  showEndScreen() {
+    const endScreen = document.querySelector(".end-screen");
+    endScreen.classList.remove("d-none");
+    const correctAnswers = document.querySelector("#correct-answers");
+    correctAnswers.textContent = this.correctAnswers;
   }
 }
