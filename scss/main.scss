@@ -42,3 +42,14 @@ li:hover {
   color: #fff;
 }
 
+.img-auto {
+  width: 14rem;
+  margin-inline: auto;
+}
+
+@include media-breakpoint-up(lg) {
+  .img-auto {
+    width: 18rem;
+    margin-inline: auto;
+  }
+}
