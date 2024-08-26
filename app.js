@@ -60,15 +60,16 @@ class Quiz {
   }
 
   start() {
-    this.cardTitle.textContent = this.quiz.title;
-    this.cardText.textContent = this.quiz.questions[0].question;
-    this.currentQuestion.textContent = 1;
+    // this.cardTitle.textContent = this.quiz.title;
+    // this.cardText.textContent = this.quiz.questions[0].question;
+    this.currentQuestion.textContent = 0;
     this.questionTotal.textContent = this.quiz.questions.length;
-    this.progressBar.style.width = "0%";
-    this.nextButton.disabled = true;
-    this.listGroupItems.forEach((listGroupItem, index) => {
-      listGroupItem.textContent = this.quiz.questions[index].options[0];
-    });
+    // this.progressBar.style.width = "0%";
+    // this.nextButton.disabled = true;
+    // this.listGroupItems.forEach((listGroupItem, index) => {
+    //   listGroupItem.textContent = this.quiz.questions[index].options[0];
+    // });
+    this.loadQuestion();
   }
 
   select(index) {
@@ -114,7 +115,7 @@ class Quiz {
       this.loadQuestion();
     }, 750);
   }
-  // TODO: progressbar rendern beim start!
+
   loadQuestion() {
     if (this.currentQuestion.textContent < this.quiz.questions.length) {
       this.currentQuestion.textContent++;
