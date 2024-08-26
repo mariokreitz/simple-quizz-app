@@ -1,4 +1,4 @@
-# 🧠 Simple Quiz App
+# 🧠 Simple Quiz App [![Netlify Status](https://api.netlify.com/api/v1/badges/9ec7a54e-435f-427b-8749-15275c354d87/deploy-status)](https://app.netlify.com/sites/simple-quiz-app-da/deploys)
 
 Willkommen bei der **Simple Quiz App**! 🎉 Dieses Projekt ist eine einfache Quiz-Anwendung, bei der es um Fragen über **JavaScript** geht. Das Projekt ist vollständig im **Object-Oriented Programming (OOP)**-Stil geschrieben.
 
