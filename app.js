@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const { cardTitle, cardText, listGroupItems, nextButton, currentQuestion, questionTotal, progressBar } =
+  const { cardTitle, cardText, listGroupItems, nextButton, currentQuestion, questionTotal, progressBar, resetButton } =
     getAllElements();
 
   const QUIZ = await fetchData("./data/quiz.json");
@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     nextButton,
     currentQuestion,
     questionTotal,
-    progressBar
+    progressBar,
+    resetButton
   );
   quiz.Initialize();
   quiz.start();
@@ -26,7 +27,8 @@ function getAllElements() {
   const questionTotal = document.querySelector("#question-total");
   const progressBar = document.querySelector(".progress-bar");
   const nextButton = document.querySelector(".btn-primary");
-  return { cardTitle, cardText, listGroupItems, nextButton, currentQuestion, questionTotal, progressBar };
+  const resetButton = document.querySelector("#resetButton");
+  return { cardTitle, cardText, listGroupItems, nextButton, currentQuestion, questionTotal, progressBar, resetButton };
 }
 
 async function fetchData(url) {
@@ -37,7 +39,17 @@ async function fetchData(url) {
 
 class Quiz {
   correctAnswers = 0;
-  constructor(quiz, cardTitle, cardText, listGroupItems, nextButton, currentQuestion, questionTotal, progressBar) {
+  constructor(
+    quiz,
+    cardTitle,
+    cardText,
+    listGroupItems,
+    nextButton,
+    currentQuestion,
+    questionTotal,
+    progressBar,
+    resetButton
+  ) {
     this.quiz = quiz;
     this.cardTitle = cardTitle;
     this.cardText = cardText;
@@ -46,6 +58,7 @@ class Quiz {
     this.currentQuestion = currentQuestion;
     this.questionTotal = questionTotal;
     this.progressBar = progressBar;
+    this.resetButton = resetButton;
   }
 
   Initialize() {
@@ -56,6 +69,9 @@ class Quiz {
     });
     this.nextButton.addEventListener("click", () => {
       this.next();
+    });
+    this.resetButton.addEventListener("click", () => {
+      this.reset();
     });
   }
 
@@ -120,12 +136,13 @@ class Quiz {
       this.progressBar.style.width = `${(this.currentQuestion.textContent / this.quiz.questions.length) * 100}%`;
       this.progressBar.textContent = `${(this.currentQuestion.textContent / this.quiz.questions.length) * 100}%`;
     } else {
-      // this.cardText.textContent = "Quiz beendet!";
       this.showEndScreen();
     }
   }
   reset() {
-    this.currentQuestion.textContent = 1;
+    const endScreen = document.querySelector("#end-screen");
+    endScreen.classList.add("d-none");
+    this.currentQuestion.textContent = 0;
     this.cardText.textContent = this.quiz.questions[0].question;
     this.progressBar.style.width = "0%";
     this.nextButton.disabled = true;
@@ -139,7 +156,7 @@ class Quiz {
   }
 
   showEndScreen() {
-    const endScreen = document.querySelector(".end-screen");
+    const endScreen = document.querySelector("#end-screen");
     endScreen.classList.remove("d-none");
     const correctAnswers = document.querySelector("#correct-answers");
     correctAnswers.textContent = this.correctAnswers;
